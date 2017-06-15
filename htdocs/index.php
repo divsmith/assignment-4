@@ -12,6 +12,4 @@ echo "<!DOCTYPE html>
 </head>
 <body>
 <p>Not implemented</p>
-</body>";
-
-// echo "<h1>Hello World from Devilbox!</h1>";
+</body>";   
