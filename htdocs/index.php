@@ -3,6 +3,7 @@
 include "../dbConnect.php";
 include "../mySQL.php";
 
+$db = fConnectToDatabase();
 
 echo "<!DOCTYPE html>
 <html>
