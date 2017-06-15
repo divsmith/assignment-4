@@ -1,2 +1,7 @@
 <?php
-    echo "<h1>Hello World from Devilbox!</h1>";
+
+include "../dbConnect.php";
+include "../mySQL.php";
+
+
+echo "<h1>Hello World from Devilbox!</h1>";
