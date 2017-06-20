@@ -4,11 +4,13 @@ include "persistence_interface.php";
 
 class Mem implements PersistenceInterface
 {
+    private $type;
     protected $buffer = [];
 
     public function __construct($firstItem = 0)
     {
-        $this->buffer[] = $firstItem;
+        $this->type = gettype($firstItem);
+        $this->buffer[] = $firstItem;;
     }
 
     public function readAll()
