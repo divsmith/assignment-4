@@ -7,10 +7,10 @@ class Mem implements PersistenceInterface
     private $type;
     protected $buffer = [];
 
-    public function __construct($firstItem = 0)
+    public function __construct($item = 0)
     {
-        $this->type = gettype($firstItem);
-        $this->buffer[] = $firstItem;;
+        $this->type = gettype($item);
+        $this->buffer[] = $item;
     }
 
     public function readAll()
