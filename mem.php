@@ -1,6 +1,8 @@
 <?php
 
-class Mem
+include "persistence_interface.php";
+
+class Mem implements PersistenceInterface
 {
     protected $buffer = [];
 
@@ -9,7 +11,7 @@ class Mem
         $this->buffer[] = $firstItem;
     }
 
-    public function all()
+    public function readAll()
     {
         return $this->buffer;
     }
@@ -19,13 +21,28 @@ class Mem
         unset($this->buffer);
     }
 
-    public function insert($item = 0)
+    public function create($item = 0)
     {
         $this->buffer[] = $item;
     }
 
-    public function remove($index)
+    public function delete($index)
     {
         unset($this->buffer[$index]);
+    }
+
+    public function count()
+    {
+        return count($this->buffer);
+    }
+
+    public function read($id)
+    {
+        return $this->buffer[$id];
+    }
+
+    public function update($id, $values)
+    {
+        $this->buffer[$id] = $values;
     }
 }
