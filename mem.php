@@ -5,10 +5,12 @@ include "persistence_interface.php";
 class Mem implements PersistenceInterface
 {
     private $type;
+    // private $prototype;
     protected $buffer = [];
 
     public function __construct($item = 0)
     {
+        // $this->prototype = $item;
         $this->type = gettype($item);
         $this->buffer[] = $item;
     }
@@ -40,6 +42,7 @@ class Mem implements PersistenceInterface
 
     public function read($id)
     {
+        // return $this->prototype->search($id, $this->buffer);
         return $this->buffer[$id];
     }
 
