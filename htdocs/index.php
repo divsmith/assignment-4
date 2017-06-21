@@ -12,3 +12,14 @@ foreach ($results as $result)
 }
 
 fDeleteDVDFromDatabase('B002ZG980U');
+
+$id = fInsertActorIntoDatabase('Bill', 'Murray');
+
+$results = fListActorsFromDatabase();
+
+foreach ($results as $result)
+{
+    var_dump($result);
+}
+
+fDeleteActorFromDatabase($id);

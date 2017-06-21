@@ -33,6 +33,41 @@ function fDeleteDVDFromDatabase($asin) {
   return $statement->execute();
 }
 
+function fListActorsFromDatabase() {
+  $db = fConnectToDatabase();
+  $sql = 'SELECT * FROM dvdActors';
+  $statement = $db->prepare($sql);
+  $statement->execute();
+
+  return $statement->fetchAll();
+}
+
+function fInsertActorIntoDatabase($fname, $lname) {
+  $db = fConnectToDatabase();
+  $sql = "INSERT INTO dvdActors (fname, lname) VALUES (:fname, :lname)";
+  $statement = $db->prepare($sql);
+  $statement->bindParam(':fname', $fname);
+  $statement->bindParam(':lname', $lname);
+
+  $result = $statement->execute();
+
+  if ($result)
+  {
+    return $db->lastInsertId('actorID');
+  }
+
+  return $result;
+}
+
+function fDeleteActorFromDatabase($actorID) {
+  $db = fConnectToDatabase();
+  $sql = "DELETE FROM dvdActors WHERE actorID = :actorID";
+  $statement = $db->prepare($sql);
+  $statement->bindParam(':actorID', $actorID);
+
+  return $statement->execute();
+}
+
 //function fDeleteFromDatabase() {
 //  $sql = "DELETE FROM tblCustomers WHERE CustID=$deleteID";
 //  // TODO: Fill in the rest of the fuction
