@@ -3,7 +3,7 @@
 
 include "dbConnect.php";
 
-function fInsertToDatabase($asin, $title, $price) {
+function fInsertDVDToDatabase($asin, $title, $price) {
   $db = fConnectToDatabase();
   $sql = "INSERT INTO dvdtitles (asin, title, price) VALUES (:asin, :title, :price)";
   // TODO: Fill in the rest of the fuction
@@ -15,7 +15,7 @@ function fInsertToDatabase($asin, $title, $price) {
   $result = $statement->execute();
 }
 
-function fListFromDatabase() {
+function fListDVDsFromDatabase() {
   $db = fConnectToDatabase();
   $sql = 'SELECT * FROM dvdtitles';
   $statement = $db->prepare($sql);
@@ -24,7 +24,7 @@ function fListFromDatabase() {
   return $statement->fetchAll();
 }
 
-function fDeleteFromDatabase($asin) {
+function fDeleteDVDFromDatabase($asin) {
   $db = fConnectToDatabase();
   $sql = "DELETE FROM dvdtitles WHERE asin = :asin";
   $statement = $db->prepare($sql);

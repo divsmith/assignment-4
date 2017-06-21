@@ -2,13 +2,13 @@
 
 include "../mySQL.php";
 
-fInsertToDatabase('B002ZG980U', 'Inception', 2.22);
+fInsertDVDToDatabase('B002ZG980U', 'Inception', 2.22);
 
-$results = fListFromDatabase();
+$results = fListDVDsFromDatabase();
 
 foreach ($results as $result)
 {
     var_dump($result);
 }
 
-fDeleteFromDatabase('B002ZG980U');
+fDeleteDVDFromDatabase('B002ZG980U');
