@@ -67,14 +67,3 @@ function fDeleteActorFromDatabase($actorID) {
 
   return $statement->execute();
 }
-
-//function fDeleteFromDatabase() {
-//  $sql = "DELETE FROM tblCustomers WHERE CustID=$deleteID";
-//  // TODO: Fill in the rest of the fuction
-//}
-//
-//function fListFromDatabase() {
-//  $sql = 'SELECT custID, nameF, nameL FROM tblCustomers ORDER BY CustID';
-//  // TODO: Fill in the rest of the fuction
-//}
-//?>
