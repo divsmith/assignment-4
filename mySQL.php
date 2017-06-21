@@ -3,9 +3,16 @@
 
 include "dbConnect.php";
 
-function fInsertToDatabase() {
-  $sql = "INSERT INTO dvdtitles (asin, title, price) VALUES ('$asin', '$title', $price)";
+function fInsertToDatabase($asin, $title, $price) {
+  $db = fConnectToDatabase();
+  $sql = "INSERT INTO dvdtitles (asin, title, price) VALUES (:asin, :title, :price)";
   // TODO: Fill in the rest of the fuction
+  $statement = $db->prepare($sql);
+  $statement->bindParam(':asin', $asin);
+  $statement->bindParam(':title', $title);
+  $statement->bindParam(':price', $price);
+
+  $result = $statement->execute();
 }
 
 function fListFromDatabase() {
@@ -15,6 +22,15 @@ function fListFromDatabase() {
   $statement->execute();
 
   return $statement->fetchAll();
+}
+
+function fDeleteFromDatabase($asin) {
+  $db = fConnectToDatabase();
+  $sql = "DELETE FROM dvdtitles WHERE asin = :asin";
+  $statement = $db->prepare($sql);
+  $statement->bindParam(':asin', $asin);
+
+  return $statement->execute();
 }
 
 //function fDeleteFromDatabase() {
