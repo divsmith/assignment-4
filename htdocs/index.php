@@ -1,18 +1,21 @@
 <?php
 
 include "../mySQL.php";
+include "../dbConnect.php";
+
+$db = fConnectToDatabase();
 
 // Insert Movies into Database
-fInsertDVDToDatabase('B002ZG980U', 'Inception', 2.22);
-fInsertDVDToDatabase('B000AAF1U4', "Emperor's New Groove", 9.99);
-fInsertDVDToDatabase('B003UESJH4', "The King's Speech", 4.00);
-fInsertDVDToDatabase('B013TYXUXC', 'Interstellar', 12.42);
-fInsertDVDToDatabase('B000P0J0AQ', 'The Matrix', 7.97);
-fInsertDVDToDatabase('B00H7KJRVY', 'The Secret Life of Walter Mitty', 5.00);
+fInsertDVDToDatabase($db, 'B002ZG980U', 'Inception', 2.22);
+fInsertDVDToDatabase($db, 'B000AAF1U4', "Emperor's New Groove", 9.99);
+fInsertDVDToDatabase($db, 'B003UESJH4', "The King's Speech", 4.00);
+fInsertDVDToDatabase($db, 'B013TYXUXC', 'Interstellar', 12.42);
+fInsertDVDToDatabase($db, 'B000P0J0AQ', 'The Matrix', 7.97);
+fInsertDVDToDatabase($db, 'B00H7KJRVY', 'The Secret Life of Walter Mitty', 5.00);
 
 
 // Show DVD results from database
-$results = fListDVDsFromDatabase();
+$results = fListDVDsFromDatabase($db);
 
 foreach ($results as $result)
 {
@@ -21,30 +24,30 @@ foreach ($results as $result)
 }
 
 // Delete DVDs from database
-fDeleteDVDFromDatabase('B002ZG980U');
-fDeleteDVDFromDatabase('B000AAF1U4');
-fDeleteDVDFromDatabase('B003UESJH4');
-fDeleteDVDFromDatabase('B013TYXUXC');
-fDeleteDVDFromDatabase('B000P0J0AQ');
-fDeleteDVDFromDatabase('B00H7KJRVY');
+fDeleteDVDFromDatabase($db, 'B002ZG980U');
+fDeleteDVDFromDatabase($db, 'B000AAF1U4');
+fDeleteDVDFromDatabase($db, 'B003UESJH4');
+fDeleteDVDFromDatabase($db, 'B013TYXUXC');
+fDeleteDVDFromDatabase($db, 'B000P0J0AQ');
+fDeleteDVDFromDatabase($db, 'B00H7KJRVY');
 
 // Insert Actors into Database
-$id[] = fInsertActorIntoDatabase('Bill', 'Murray');
-$id[] = fInsertActorIntoDatabase('Keanu', 'Reeves');
-$id[] = fInsertActorIntoDatabase('Lawrence', 'Fishburne');
-$id[] = fInsertActorIntoDatabase('Matthew', 'McConaughey');
-$id[] = fInsertActorIntoDatabase('David', 'Spade');
-$id[] = fInsertActorIntoDatabase('John', 'Goodman');
-$id[] = fInsertActorIntoDatabase('Anne', 'Hathaway');
-$id[] = fInsertActorIntoDatabase('Ben', 'Stiller');
-$id[] = fInsertActorIntoDatabase('Kirsten', 'Wiig');
-$id[] = fInsertActorIntoDatabase('Leonardo', 'DiCaprio');
-$id[] = fInsertActorIntoDatabase('Ellen', 'Page');
-$id[] = fInsertActorIntoDatabase('Colin', 'Furth');
-$id[] = fInsertActorIntoDatabase('Geoffrey', 'Rush');
+$id[] = fInsertActorIntoDatabase($db, 'Bill', 'Murray');
+$id[] = fInsertActorIntoDatabase($db, 'Keanu', 'Reeves');
+$id[] = fInsertActorIntoDatabase($db, 'Lawrence', 'Fishburne');
+$id[] = fInsertActorIntoDatabase($db, 'Matthew', 'McConaughey');
+$id[] = fInsertActorIntoDatabase($db, 'David', 'Spade');
+$id[] = fInsertActorIntoDatabase($db, 'John', 'Goodman');
+$id[] = fInsertActorIntoDatabase($db, 'Anne', 'Hathaway');
+$id[] = fInsertActorIntoDatabase($db, 'Ben', 'Stiller');
+$id[] = fInsertActorIntoDatabase($db, 'Kirsten', 'Wiig');
+$id[] = fInsertActorIntoDatabase($db, 'Leonardo', 'DiCaprio');
+$id[] = fInsertActorIntoDatabase($db, 'Ellen', 'Page');
+$id[] = fInsertActorIntoDatabase($db, 'Colin', 'Furth');
+$id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
 
 // List results from Actor's table
-$results = fListActorsFromDatabase();
+$results = fListActorsFromDatabase($db);
 
 foreach ($results as $result)
 {
@@ -54,5 +57,5 @@ foreach ($results as $result)
 // Delete actors from database
 foreach ($id as $item)
 {
-    fDeleteActorFromDatabase($item);
+    fDeleteActorFromDatabase($db, $item);
 }
