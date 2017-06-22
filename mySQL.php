@@ -12,7 +12,7 @@ function fInsertDVDToDatabase($asin, $title, $price) {
   $statement->bindParam(':title', $title);
   $statement->bindParam(':price', $price);
 
-  $result = $statement->execute();
+  return $statement->execute();
 }
 
 function fListDVDsFromDatabase() {
