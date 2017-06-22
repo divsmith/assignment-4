@@ -1,14 +1,12 @@
 <?php
 // database functions ************************************************
 
-include "dbConnect.php";
-
-function fInsertDVDToDatabase($asin, $title, $price) {
+function fInsertDVDToDatabase($db, $asin, $title, $price) {
     if (!is_string($asin) || !is_string($title) || !is_double($price))
     {
         return false;
     }
-    $db = fConnectToDatabase();
+
     $sql = "INSERT INTO dvdtitles (asin, title, price) VALUES (:asin, :title, :price)";
     // TODO: Fill in the rest of the fuction
     $statement = $db->prepare($sql);
@@ -19,8 +17,7 @@ function fInsertDVDToDatabase($asin, $title, $price) {
     return $statement->execute();
 }
 
-function fListDVDsFromDatabase() {
-  $db = fConnectToDatabase();
+function fListDVDsFromDatabase($db) {
   $sql = 'SELECT * FROM dvdtitles';
   $statement = $db->prepare($sql);
   $statement->execute();
@@ -28,12 +25,11 @@ function fListDVDsFromDatabase() {
   return $statement->fetchAll();
 }
 
-function fDeleteDVDFromDatabase($asin) {
+function fDeleteDVDFromDatabase($db, $asin) {
     if (!is_string($asin))
     {
         return false;
     }
-    $db = fConnectToDatabase();
     $sql = "DELETE FROM dvdtitles WHERE asin = :asin";
     $statement = $db->prepare($sql);
     $statement->bindParam(':asin', $asin);
@@ -41,21 +37,20 @@ function fDeleteDVDFromDatabase($asin) {
     return $statement->execute();
 }
 
-function fListActorsFromDatabase() {
-  $db = fConnectToDatabase();
-  $sql = 'SELECT * FROM dvdActors';
-  $statement = $db->prepare($sql);
-  $statement->execute();
+function fListActorsFromDatabase($db) {
+    $sql = 'SELECT * FROM dvdActors';
+    $statement = $db->prepare($sql);
+    $statement->execute();
 
-  return $statement->fetchAll();
+    return $statement->fetchAll();
 }
 
-function fInsertActorIntoDatabase($fname, $lname) {
+function fInsertActorIntoDatabase($db, $fname, $lname) {
     if (!is_string($fname) || !is_string($lname))
     {
         return false;
     }
-    $db = fConnectToDatabase();
+
     $sql = "INSERT INTO dvdActors (fname, lname) VALUES (:fname, :lname)";
     $statement = $db->prepare($sql);
     $statement->bindParam(':fname', $fname);
@@ -71,12 +66,11 @@ function fInsertActorIntoDatabase($fname, $lname) {
     return $result;
 }
 
-function fDeleteActorFromDatabase($actorID) {
-    if (!is_integer($actorID))
+function fDeleteActorFromDatabase($db, $actorID) {
+    if (!is_numeric($actorID))
     {
         return false;
     }
-    $db = fConnectToDatabase();
     $sql = "DELETE FROM dvdActors WHERE actorID = :actorID";
     $statement = $db->prepare($sql);
     $statement->bindParam(':actorID', $actorID);
