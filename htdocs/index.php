@@ -63,7 +63,15 @@ fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
 
 
 // Delete actors from database
-//foreach ($id as $item)
-//{
-//    fDeleteActorFromDatabase($db, $item);
-//}
+foreach ($id as $item)
+{
+    fDeleteActorFromDatabase($db, $item);
+}
+
+// Delete DVDs from database
+fDeleteDVDFromDatabase($db, 'B002ZG980U');
+fDeleteDVDFromDatabase($db, 'B000AAF1U4');
+fDeleteDVDFromDatabase($db, 'B003UESJH4');
+fDeleteDVDFromDatabase($db, 'B013TYXUXC');
+fDeleteDVDFromDatabase($db, 'B000P0J0AQ');
+fDeleteDVDFromDatabase($db, 'B00H7KJRVY');
