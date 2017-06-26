@@ -56,10 +56,10 @@ $id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
 
 // Insert records into pivot table
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
-fInsertDVDActor($db, 'B002ZG980U', $id[9]);
+fInsertDVDActor($db, 'B002ZG980U', $id[10]);
 
 fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
-fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
+fDeleteDVDActor($db, 'B002ZG980U', $id[10]);
 
 
 // Delete actors from database
