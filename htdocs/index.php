@@ -24,12 +24,12 @@ foreach ($results as $result)
 }
 
 // Delete DVDs from database
-fDeleteDVDFromDatabase($db, 'B002ZG980U');
-fDeleteDVDFromDatabase($db, 'B000AAF1U4');
-fDeleteDVDFromDatabase($db, 'B003UESJH4');
-fDeleteDVDFromDatabase($db, 'B013TYXUXC');
-fDeleteDVDFromDatabase($db, 'B000P0J0AQ');
-fDeleteDVDFromDatabase($db, 'B00H7KJRVY');
+//fDeleteDVDFromDatabase($db, 'B002ZG980U');
+//fDeleteDVDFromDatabase($db, 'B000AAF1U4');
+//fDeleteDVDFromDatabase($db, 'B003UESJH4');
+//fDeleteDVDFromDatabase($db, 'B013TYXUXC');
+//fDeleteDVDFromDatabase($db, 'B000P0J0AQ');
+//fDeleteDVDFromDatabase($db, 'B00H7KJRVY');
 
 // Insert Actors into Database
 $id[] = fInsertActorIntoDatabase($db, 'Bill', 'Murray');
@@ -54,8 +54,12 @@ foreach ($results as $result)
     var_dump($result);
 }
 
+// Insert records into pivot table
+fInsertDVDActor('B002ZG980U', $id[9]);
+fInsertDVDActor('B002ZG980U', $id[9]);
+
 // Delete actors from database
-foreach ($id as $item)
-{
-    fDeleteActorFromDatabase($db, $item);
-}
+//foreach ($id as $item)
+//{
+//    fDeleteActorFromDatabase($db, $item);
+//}
