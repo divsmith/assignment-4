@@ -125,6 +125,24 @@ function fInsertActorIntoDatabase($db, $fname, $lname) {
     return $result;
 }
 
+function fUpdateActorInDatabase($db, $id, $fname, $lname) {
+    if (!is_string($fname) || !is_string($lname) || !is_numeric($id))
+    {
+        return false;
+    }
+
+    $sql = "UPDATE dvdActors
+            SET fname = :fname,
+                lname = :lname
+            WHERE actorID = :actorID";
+    $statement = $db->prepare($sql);
+    $statement->bindParam(':fname', $fname);
+    $statement->bindParam(':lname', $lname);
+    $statement->bindParam(':actorID', $id);
+
+    return $statement->execute();
+}
+
 function fDeleteActorFromDatabase($db, $actorID) {
     if (!is_numeric($actorID))
     {

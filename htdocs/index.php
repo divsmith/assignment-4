@@ -18,7 +18,7 @@ fUpdateDVDInDatabase($db, 'B003UESJH4', "The King's Speech", 4.00);
 
 // Insert Actors into Database
 $id[] = fInsertActorIntoDatabase($db, 'Bill', 'Murray');
-$id[] = fInsertActorIntoDatabase($db, 'Keanu', 'Reeves');
+$id[] = fInsertActorIntoDatabase($db, 'I Know', 'Kung Fu!');
 $id[] = fInsertActorIntoDatabase($db, 'Lawrence', 'Fishburne');
 $id[] = fInsertActorIntoDatabase($db, 'Matthew', 'McConaughey');
 $id[] = fInsertActorIntoDatabase($db, 'David', 'Spade');
@@ -30,6 +30,9 @@ $id[] = fInsertActorIntoDatabase($db, 'Leonardo', 'DiCaprio');
 $id[] = fInsertActorIntoDatabase($db, 'Ellen', 'Page');
 $id[] = fInsertActorIntoDatabase($db, 'Colin', 'Furth');
 $id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
+
+// Update Actor
+fUpdateActorInDatabase($db, $id[1], 'Keanu', 'Reeves');
 
 // Insert records into pivot table
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
