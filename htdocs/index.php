@@ -57,11 +57,30 @@ $id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
 // Insert records into pivot table
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
 fInsertDVDActor($db, 'B002ZG980U', $id[10]);
-
+fInsertDVDActor($db, 'B000AAF1U4', $id[4]);
+fInsertDVDActor($db, 'B000AAF1U4', $id[5]);
+fInsertDVDActor($db, 'B003UESJH4', $id[11]);
+fInsertDVDActor($db, 'B003UESJH4', $id[12]);
+fInsertDVDActor($db, 'B013TYXUXC', $id[3]);
+fInsertDVDActor($db, 'B013TYXUXC', $id[6]);
+fInsertDVDActor($db, 'B000P0J0AQ', $id[1]);
+fInsertDVDActor($db, 'B000P0J0AQ', $id[2]);
+fInsertDVDActor($db, 'B00H7KJRVY', $id[7]);
+fInsertDVDActor($db, 'B00H7KJRVY', $id[8]);
 
 // Delete records from pivot table
 fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
 fDeleteDVDActor($db, 'B002ZG980U', $id[10]);
+fDeleteDVDActor($db, 'B000AAF1U4', $id[4]);
+fDeleteDVDActor($db, 'B000AAF1U4', $id[5]);
+fDeleteDVDActor($db, 'B003UESJH4', $id[11]);
+fDeleteDVDActor($db, 'B003UESJH4', $id[12]);
+fDeleteDVDActor($db, 'B013TYXUXC', $id[3]);
+fDeleteDVDActor($db, 'B013TYXUXC', $id[6]);
+fDeleteDVDActor($db, 'B000P0J0AQ', $id[1]);
+fDeleteDVDActor($db, 'B000P0J0AQ', $id[2]);
+fDeleteDVDActor($db, 'B00H7KJRVY', $id[7]);
+fDeleteDVDActor($db, 'B00H7KJRVY', $id[8]);
 
 
 // Delete actors from database
