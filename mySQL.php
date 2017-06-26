@@ -32,7 +32,8 @@ function fDeleteDVDActor($db, $asin, $actorID) {
 function fListActorDvd($db) {
     $sql = "SELECT * FROM actor_dvd ad
             INNER JOIN dvdtitles dt ON ad.asin = dt.asin
-            INNER JOIN dvdActors da ON ad.actorID = da.actorID";
+            INNER JOIN dvdActors da ON ad.actorID = da.actorID
+            ORDER BY ad.asin";
 
     $statement = $db->prepare($sql);
     $statement->execute();
