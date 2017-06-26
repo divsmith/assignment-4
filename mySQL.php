@@ -1,6 +1,20 @@
 <?php
 // database functions ************************************************
 
+function fInsertDVDActor($db, $asin,  $actorID) {
+    if (!is_string($asin) || !is_numeric($actorID))
+    {
+        return false;
+    }
+
+    $sql = "INSERT INTO dvd_actor (asin, actorID) VALUES (:asin, :actorID)";
+    $statement = $db->prepare($sql);
+    $statement->bindParam(':asin', $asin);
+    $statement->bindParam(':actorID', $actorID);
+
+    return $statement->execute();
+}
+
 function fInsertDVDToDatabase($db, $asin, $title, $price) {
     if (!is_string($asin) || !is_string($title) || !is_double($price))
     {
