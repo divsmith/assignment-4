@@ -15,13 +15,13 @@ fInsertDVDToDatabase($db, 'B00H7KJRVY', 'The Secret Life of Walter Mitty', 5.00)
 
 
 // Show DVD results from database
-$results = fListDVDsFromDatabase($db);
-
-foreach ($results as $result)
-{
-    var_dump($result);
-    echo "<img src=\"http://images.amazon.com/images/P/{$result['asin']}.01.MZZZZZZZ.jpg\"/>";
-}
+//$results = fListDVDsFromDatabase($db);
+//
+//foreach ($results as $result)
+//{
+//    var_dump($result);
+//    echo "<img src=\"http://images.amazon.com/images/P/{$result['asin']}.01.MZZZZZZZ.jpg\"/>";
+//}
 
 // Delete DVDs from database
 //fDeleteDVDFromDatabase($db, 'B002ZG980U');
@@ -47,12 +47,12 @@ $id[] = fInsertActorIntoDatabase($db, 'Colin', 'Furth');
 $id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
 
 // List results from Actor's table
-$results = fListActorsFromDatabase($db);
-
-foreach ($results as $result)
-{
-    var_dump($result);
-}
+//$results = fListActorsFromDatabase($db);
+//
+//foreach ($results as $result)
+//{
+//    var_dump($result);
+//}
 
 // Insert records into pivot table
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
