@@ -15,6 +15,27 @@ function fInsertDVDActor($db, $asin,  $actorID) {
     return $statement->execute();
 }
 
+function fUpdateDVDActor($db, $oldAsin,  $oldActorID, $asin, $actorID) {
+    if (!is_string($asin) || !is_numeric($actorID) || !is_string($oldAsin) || !is_numeric($oldActorID))
+    {
+        return false;
+    }
+
+    $sql = "UPDATE actor_dvd
+            SET asin = :asin,
+                actorID = :actorID
+            WHERE
+                asin = :oldAsin
+                AND actorID = :oldActorID";
+    $statement = $db->prepare($sql);
+    $statement->bindParam(':asin', $asin);
+    $statement->bindParam(':actorID', $actorID);
+    $statement->bindParam(':oldAsin', $oldAsin);
+    $statement->bindParam(':oldActorID', $oldActorID);
+
+    return $statement->execute();
+}
+
 function fDeleteDVDActor($db, $asin, $actorID) {
     if (!is_string($asin) || !is_numeric($actorID))
     {

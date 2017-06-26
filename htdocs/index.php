@@ -35,7 +35,7 @@ $id[] = fInsertActorIntoDatabase($db, 'Geoffrey', 'Rush');
 fUpdateActorInDatabase($db, $id[1], 'Keanu', 'Reeves');
 
 // Insert records into pivot table
-fInsertDVDActor($db, 'B002ZG980U', $id[9]);
+fInsertDVDActor($db, 'B00H7KJRVY', $id[11]);
 fInsertDVDActor($db, 'B002ZG980U', $id[10]);
 fInsertDVDActor($db, 'B000AAF1U4', $id[4]);
 fInsertDVDActor($db, 'B000AAF1U4', $id[5]);
@@ -47,6 +47,9 @@ fInsertDVDActor($db, 'B000P0J0AQ', $id[1]);
 fInsertDVDActor($db, 'B000P0J0AQ', $id[2]);
 fInsertDVDActor($db, 'B00H7KJRVY', $id[7]);
 fInsertDVDActor($db, 'B00H7KJRVY', $id[8]);
+
+// Update actor_dvd
+fUpdateDVDActor($db, 'B00H7KJRVY', $id[11], 'B002ZG980U', $id[9]);
 
 // List results from actor_dvd table
 $results = fListActorDvd($db);
