@@ -8,10 +8,13 @@ $db = fConnectToDatabase();
 // Insert Movies into Database
 fInsertDVDToDatabase($db, 'B002ZG980U', 'Inception', 2.22);
 fInsertDVDToDatabase($db, 'B000AAF1U4', "Emperor's New Groove", 9.99);
-fInsertDVDToDatabase($db, 'B003UESJH4', "The King's Speech", 4.00);
+fInsertDVDToDatabase($db, 'B003UESJH4', "The King's Missppelled Speech", 500.00);
 fInsertDVDToDatabase($db, 'B013TYXUXC', 'Interstellar', 12.42);
 fInsertDVDToDatabase($db, 'B000P0J0AQ', 'The Matrix', 7.97);
 fInsertDVDToDatabase($db, 'B00H7KJRVY', 'The Secret Life of Walter Mitty', 5.00);
+
+// Update Movie
+fUpdateDVDInDatabase($db, 'B003UESJH4', "The King's Speech", 4.00);
 
 // Insert Actors into Database
 $id[] = fInsertActorIntoDatabase($db, 'Bill', 'Murray');

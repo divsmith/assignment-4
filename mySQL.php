@@ -57,6 +57,25 @@ function fInsertDVDToDatabase($db, $asin, $title, $price) {
     return $statement->execute();
 }
 
+function fUpdateDVDInDatabase($db, $asin, $title, $price) {
+    if (!is_string($asin) || !is_string($title) || !is_double($price))
+    {
+        return false;
+    }
+
+    $sql = "UPDATE dvdtitles 
+            SET title = :title,
+                price = :price
+            WHERE asin = :asin";
+    // TODO: Fill in the rest of the fuction
+    $statement = $db->prepare($sql);
+    $statement->bindParam(':asin', $asin);
+    $statement->bindParam(':title', $title);
+    $statement->bindParam(':price', $price);
+
+    return $statement->execute();
+}
+
 function fListDVDsFromDatabase($db) {
   $sql = 'SELECT * FROM dvdtitles';
   $statement = $db->prepare($sql);
