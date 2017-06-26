@@ -7,7 +7,7 @@ function fInsertDVDActor($db, $asin,  $actorID) {
         return false;
     }
 
-    $sql = "INSERT INTO dvd_actor (asin, actorID) VALUES (:asin, :actorID)";
+    $sql = "INSERT INTO actor_dvd (asin, actorID) VALUES (:asin, :actorID)";
     $statement = $db->prepare($sql);
     $statement->bindParam(':asin', $asin);
     $statement->bindParam(':actorID', $actorID);
@@ -21,7 +21,7 @@ function fDeleteDVDActor($db, $asin, $actorID) {
         return false;
     }
 
-    $sql = "DELETE FROM dvd_actor WHERE asin = :asin AND actorID = :actorID";
+    $sql = "DELETE FROM actor_dvd WHERE asin = :asin AND actorID = :actorID";
     $statement = $db->prepare($sql);
     $statement->bindParam(':asin', $asin);
     $statement->bindParam(':actorID', $actorID);
