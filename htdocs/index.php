@@ -70,10 +70,25 @@ fInsertDVDActor($db, 'B00H7KJRVY', $id[8]);
 
 // List results from actor_dvd table
 $results = fListActorDvd($db);
+$dvdResults = [];
 
 foreach ($results as $result)
 {
-    var_dump($result);
+    if (!in_array($result['asin'], $dvdResults))
+    {
+        $dvdResults[] = $result['asin'];
+        echo $result['asin'] . '<br/>';
+        echo $result['title'] . '<br/>';
+        echo $result['price'] . '<br/>';
+        echo "<img src=\"http://images.amazon.com/images/P/{$result['asin']}.01.MZZZZZZZ.jpg\"/><br/>";
+        echo $result['fname'] . " " . $result['lname'] . '<br/>';
+    }
+    else
+    {
+        echo $result['fname'] . " " . $result['lname'] . '<br/>';
+    }
+
+    echo '<br/>';
 }
 
 // Delete records from pivot table
