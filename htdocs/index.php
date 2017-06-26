@@ -68,6 +68,14 @@ fInsertDVDActor($db, 'B000P0J0AQ', $id[2]);
 fInsertDVDActor($db, 'B00H7KJRVY', $id[7]);
 fInsertDVDActor($db, 'B00H7KJRVY', $id[8]);
 
+// List results from actor_dvd table
+$results = fListActorDvd($db);
+
+foreach ($results as $result)
+{
+    var_dump($result);
+}
+
 // Delete records from pivot table
 fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
 fDeleteDVDActor($db, 'B002ZG980U', $id[10]);

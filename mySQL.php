@@ -29,6 +29,17 @@ function fDeleteDVDActor($db, $asin, $actorID) {
     return $statement->execute();
 }
 
+function fListActorDvd($db) {
+    $sql = "SELECT * FROM actor_dvd ad
+            INNER JOIN dvdtitles dt ON ad.asin = dt.asin
+            INNER JOIN dvdActors da ON ad.actorID = da.actorID";
+
+    $statement = $db->prepare($sql);
+    $statement->execute();
+
+    return $statement->fetchAll();
+}
+
 function fInsertDVDToDatabase($db, $asin, $title, $price) {
     if (!is_string($asin) || !is_string($title) || !is_double($price))
     {
