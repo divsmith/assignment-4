@@ -58,6 +58,10 @@ foreach ($results as $result)
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
 fInsertDVDActor($db, 'B002ZG980U', $id[9]);
 
+fDeleveDVDActor($db, 'B002ZG980U', $id[9]);
+fDeleteDVDActor($db, 'B002ZG980U', $id[9]);
+
+
 // Delete actors from database
 //foreach ($id as $item)
 //{

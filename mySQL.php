@@ -15,6 +15,20 @@ function fInsertDVDActor($db, $asin,  $actorID) {
     return $statement->execute();
 }
 
+function fDeleteDVDActor($db, $asin, $actorID) {
+    if (!is_string($asin) || !is_numeric($actorID))
+    {
+        return false;
+    }
+
+    $sql = "DELETE FROM dvd_actor WHERE asin = :asin AND actorID = :actorID";
+    $statement = $db->prepare($sql);
+    $statement->bindParam(':asin', $asin);
+    $statement->bindParam(':actorID', $actorID);
+
+    return $statement->execute();
+}
+
 function fInsertDVDToDatabase($db, $asin, $title, $price) {
     if (!is_string($asin) || !is_string($title) || !is_double($price))
     {
