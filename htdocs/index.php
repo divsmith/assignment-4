@@ -55,8 +55,8 @@ foreach ($results as $result)
 }
 
 // Insert records into pivot table
-fInsertDVDActor('B002ZG980U', $id[9]);
-fInsertDVDActor('B002ZG980U', $id[9]);
+fInsertDVDActor($db, 'B002ZG980U', $id[9]);
+fInsertDVDActor($db, 'B002ZG980U', $id[9]);
 
 // Delete actors from database
 //foreach ($id as $item)
