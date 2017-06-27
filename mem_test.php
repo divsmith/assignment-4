@@ -1,7 +1,7 @@
 <?php
 
 include "mem.php";
-include "dvd_titles.php";
+include "DvdTitle.php";
 
 function TestConstructor()
 {

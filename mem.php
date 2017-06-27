@@ -1,8 +1,8 @@
 <?php
 
-include "persistence_interface.php";
+include "StorageInterface.php";
 
-class Mem implements PersistenceInterface
+class Mem implements StorageInterface
 {
     private $type;
     // private $prototype;
